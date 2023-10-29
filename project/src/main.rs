@@ -1,24 +1,28 @@
-use project::compute_percentiles;
-use std::time::Instant;
+mod mylib {
+    pub mod operations;
+    pub mod load_data;
+}
 
-fn main() {
-    // Path to the CSV file
-    let csv_path = "dataset/Development of Average Annual Wages_1.csv";
-    // Name of the column
-    let column_name = "2020";
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Load the dataset into the SQLite database
+    mylib::load_data::load("Development of Average Annual Wages_1.csv")?;
 
-    // Try to compute the percentiles and handle any potential errors
-    let start = Instant::now();
-    match compute_percentiles(csv_path, column_name) {
-        Ok((p25, p50, p75)) => {
-            println!("25th Percentile: {}", p25);
-            println!("50th Percentile: {}", p50);
-            println!("75th Percentile: {}", p75);
-        }
-        Err(e) => {
-            eprintln!("An error occurred: {}", e);
-        }
-    }
-    let duration = start.elapsed();
-    println!("Time elapsed is: {:?}", duration);
+    // Establish the connection for further operations
+    let conn = mylib::operations::establish_connection()?;
+
+    // Create wages data with 5-digit numbers
+    mylib::operations::create_wages_data(&conn, "China", 10000.0, 15000.0, 20000.0, 22000.0)?;
+
+    // Update wages data
+    mylib::operations::update_wages_data(&conn, "Iceland", 20000.0, 25000.0, 30000.0, 32000.0)?;
+
+    // Print wages data
+    mylib::operations::read_wages_data_by_country(&conn, "China")?;
+
+    // Delete wages data for "China"
+    mylib::operations::delete_wages_data(&conn, "China")?;
+
+    // The connection will automatically close when `conn` goes out of scope at the end of the `main` function.
+
+    Ok(())
 }
