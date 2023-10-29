@@ -10,9 +10,9 @@ format:
 	cargo fmt --quiet
 
 install:
-    @echo "Updating rust toolchain"
-    rustup update stable
-    rustup default stable 
+	@echo "Updating rust toolchain"
+	rustup update stable
+	rustup default stable 
 
 lint:
 	cargo clippy --quiet
@@ -27,20 +27,3 @@ release:
 	cargo build --release
 
 all: format lint test run
-
-python_install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
-
-python_test:
-	python3 -m pytest -vv --cov=main --cov=lib test_*.py
-
-python_format:	
-	black *.py 
-
-python_lint:
-	pylint --disable=R,C --ignore-patterns=test_.*?py *.py
-
-
-		
-python_all: python_install python_lint python_test python_format
