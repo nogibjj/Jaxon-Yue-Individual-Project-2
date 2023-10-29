@@ -10,3 +10,7 @@ clap = { version = "4.3.17", features = ["derive"] }
 csv = "1.1"
 statrs = "0.16"
 rusqlite = "0.29.0"
+
+[lib]
+name = "mylib"
+path = "src/mylib/mod.rs"

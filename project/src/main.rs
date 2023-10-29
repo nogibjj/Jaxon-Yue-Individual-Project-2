@@ -1,7 +1,4 @@
-mod mylib {
-    pub mod load_data;
-    pub mod operations;
-}
+mod mylib;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Load the dataset into the SQLite database
