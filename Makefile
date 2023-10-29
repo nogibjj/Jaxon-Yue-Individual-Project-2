@@ -13,13 +13,13 @@ lint:
 	cargo clippy --quiet
 
 test:
-	cd /workspaces/Jaxon-Yue-Individual-Project-2/project/ && cargo test --quiet
+	cd project/ && cargo test --quiet
 
 run:
 	cargo run
 
 release:
-	cd /workspaces/Jaxon-Yue-Individual-Project-2/project/ && cargo build --release
+	cd project/ && cargo build --release
 
 install:
 	# Install if needed
