@@ -5,15 +5,15 @@
 
 ## Goal
 * Implementing CRUD operations using Rust code on a SQLite database
-* Use of GitHub Copilot during the completion process
+* Using GitHub Copilot during the completion process
 * Including a process that generates an optimized Rust binary as a GitHub Actions artifact that can be downloaded
 
 ## Key Elements in the Repo:
-* project/src/mylib/load_data.rs (the Rust script to load the csv into a database)
-* project/src/mylib/operations.rs (the Rust script for CRUD operations)
-* project/src/tests (contains the respective tests for the written functions)
-* project/Development of Average Annual Wages_1.csv (the csv file for the database)
-* project/Cargo.toml
+* `project/src/mylib/load_data.rs` (the Rust script to load the csv into a database)
+* `project/src/mylib/operations.rs` (the Rust script for CRUD operations)
+* `project/src/tests` (contains the respective tests for the written functions)
+* `project/Development of Average Annual Wages_1.csv` (the csv file for the database)
+* `project/Cargo.toml`
 * Makefile
 * Dockerfile
 * devcontainer
@@ -45,21 +45,41 @@ Functions in `project/src/mylib/operations.rs`:
 
 * **Delete the data for China**
 `delete_wages_data("China")`
+<img width="589" alt="Screenshot 2023-10-29 at 2 17 09 PM" src="https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/assets/70416390/092ef11b-8284-4cac-93df-eb274763bf73">
+(Successful CRUD operations)
+
+## Optimized Rust Binary
+ I've included a process that generates an optimized Rust binary as below, and you can download an artifact from GitHub Action's latest workflow run.
+ name: Archive Binary
+ uses: actions/upload-artifact@v2
+ with:
+    name: optimized-binary
+    path: target/release/sqlite_operations
+
+## Use of Copilot
+I utilized Copilot to help me during the coding process. I started my repository with the same csv file and CRUD operations but in Python, and I was able to finish converting the whole repo to Rust-based with the help and hints from Copilot. Some examples of my Copilot usage are the following:
+
+1. Help me convert the **create_wages_data** function to Rust
+2. Write some test cases for the **read_wages_data_by_country** function
+3. Explain this **type** error to me and provide some potential solutions
 
 ## User Guide to Run
-1. Fork the repository at **https://github.com/nogibjj/rust-data-engineering**
-2. Install Rust by running
+1. Install Rust by running in your terminal
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
-3. Restart shell by running
+2. Restart shell by running
 ```
 source $HOME/.cargo/env
 ```
-4. Check to see if Rust has been installed correctly
+3. Check to see if Rust has been installed correctly
 ```
 rustc --version
 cargo --version
+```
+4. Go into the `project` folder by  
+```
+cd project
 ```
 5. Now, you can run `cargo build` to compile your changes  
 ```
@@ -91,7 +111,7 @@ all: format lint test run
 ```
 
 I have passed all GitHub Actions as below:
-<img width="684" alt="Screenshot 2023-10-28 at 6 22 32 PM" src="https://github.com/nogibjj/Jaxon-Yue-Mini-Project-8/assets/70416390/aeb9727d-d93a-41de-9cda-7ddc28940c90">
+<img width="701" alt="Screenshot 2023-10-29 at 4 06 15 PM" src="https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/assets/70416390/ee97f010-7fa8-4b64-b0e5-9f44713b7b51">
 
 
 ## References
