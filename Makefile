@@ -19,7 +19,7 @@ run:
 	cargo run
 
 release:
-    cd /path/to/rust/project && cargo build --release
+	cd /path/to/rust/project && cargo build --release
 
 install:
 	# Install if needed
