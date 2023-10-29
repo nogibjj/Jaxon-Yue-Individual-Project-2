@@ -18,9 +18,6 @@ install:
 build:
 	mdbook build data-eng-rust-tutorial
 
-serve:
-	mdbook serve -p 8000 -n 127.0.0.1 data-eng-rust-tutorial 
-
 format:
 	@echo "Formatting all projects with cargo"
 	./format.sh
@@ -38,6 +35,6 @@ run:
 	cargo run
 
 release:
-	cargo build --release
+	cd project/ && cargo build --release
 
 all: format lint test run
