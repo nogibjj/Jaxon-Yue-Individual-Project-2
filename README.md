@@ -30,7 +30,7 @@ Functions in `project/src/mylib/operations.rs`:
 * `update_wages_data` UPDATE: update a given country's data
 * `delete_wages_data` DELETE: delete a given country's data
 
-### CRUD in main.py
+### CRUD in main.rs
 * **Load csv data into SQLite database**:
 `load("Development of Average Annual Wages_1.csv")`
 
@@ -50,11 +50,13 @@ Functions in `project/src/mylib/operations.rs`:
 
 ## Optimized Rust Binary
  I've included a process that generates an optimized Rust binary as below, and you can download an artifact from GitHub Action's latest workflow run.
+ ```
  name: Archive Binary
  uses: actions/upload-artifact@v2
  with:
     name: optimized-binary
     path: target/release/sqlite_operations
+ ```
 
 ## Use of Copilot
 I utilized Copilot to help me during the coding process. I started my repository with the same csv file and CRUD operations but in Python, and I was able to finish converting the whole repo to Rust-based with the help and hints from Copilot. Some examples of my Copilot usage are the following:
@@ -113,6 +115,7 @@ all: format lint test run
 I have passed all GitHub Actions as below:
 <img width="701" alt="Screenshot 2023-10-29 at 4 06 15 PM" src="https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/assets/70416390/ee97f010-7fa8-4b64-b0e5-9f44713b7b51">
 
+## YouTube Introduction
 
 ## References
 
