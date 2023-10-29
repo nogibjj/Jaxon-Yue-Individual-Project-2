@@ -21,10 +21,6 @@ run:
 release:
     cd /path/to/rust/project && cargo build --release
 
-# release:
-# 	cargo build --release
-
-# Install Rust toolchain if needed
 install:
 	# Install if needed
 	# @echo "Updating rust toolchain"
