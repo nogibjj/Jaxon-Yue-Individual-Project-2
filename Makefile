@@ -7,7 +7,7 @@ rust-version:
 	clippy-driver --version		#rust linter
 
 format:
-	cargo fmt --quiet
+	cd project && cargo fmt —quiet
 
 lint:
 	cargo clippy --quiet
