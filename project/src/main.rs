@@ -1,6 +1,6 @@
 mod mylib {
-    pub mod operations;
     pub mod load_data;
+    pub mod operations;
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {

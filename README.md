@@ -1,18 +1,19 @@
-# IDS 706 Mini Project 8 [![Tests](https://github.com/nogibjj/Jaxon-Yue-Mini-Project-8/actions/workflows/tests.yml/badge.svg)](https://github.com/nogibjj/Jaxon-Yue-Mini-Project-8/actions/workflows/tests.yml)
+# IDS 706 Individual Project 2
 
 ## Overview
-* This repository includes the components for Mini-Project 8 - Rewrite a Python Script in Rust
+* This repository includes the components for Individual Project 2 - Rust CLI Binary with SQLite
 
 ## Goal
-* Rewrite an existing Python script in Rust for data processing
-* Highlight improvements in speed and resource usage
+* Implementing CRUD operations using Rust code on a SQLite database
+* Use of GitHub Copilot during the completion process
+* Including a process that generates an optimized Rust binary as a GitHub Actions artifact that can be downloaded
 
 ## Key Elements in the Repo:
-* project/src (contains the Rust script and main function)
-* project/tests (contains the respective tests)
+* project/src/mylib/load_data.rs (the Rust script to load the csv into a database)
+* project/src/mylib/operations.rs (the Rust script for CRUD operations)
+* project/src/tests (contains the respective tests for the written functions)
+* project/Development of Average Annual Wages_1.csv (the csv file for the database)
 * project/Cargo.toml
-* project/dataset (contains the csv file)
-* mylib/lib.py (contains the Python version)
 * Makefile
 * Dockerfile
 * devcontainer
@@ -22,15 +23,28 @@
 * test.sh
 * bashrc
 
-## Data Processing Script
-* For this project, I wrote a script in Rust to get the 25%, 50%, and 75% percentile of column of the "Annual Wages" data table. Then, I wrote the same function in Python and compared the performance between Rust and Python.
-* With the same data frame operation, Rust has beat the Python version during all my tries, both in run time and CPU and memory usage.
-* <img width="555" alt="Screenshot 2023-10-28 at 6 04 33 PM" src="https://github.com/nogibjj/Jaxon-Yue-Mini-Project-8/assets/70416390/de64fe26-5af6-492c-8ad6-5a4aecbdfca8">
-Rust script
-* <img width="559" alt="Screenshot 2023-10-28 at 6 21 26 PM" src="https://github.com/nogibjj/Jaxon-Yue-Mini-Project-8/assets/70416390/b73ee2aa-8935-43e5-b287-90d04a2c00f2">
-Python script
+## CRUD Operations
+Functions in `project/src/mylib/operations.rs`:
+* `create_wages_data` CREATE: insert a new country's data
+* `read_wages_data_by_country` READ: read a given country's data
+* `update_wages_data` UPDATE: update a given country's data
+* `delete_wages_data` DELETE: delete a given country's data
 
-* While the Python version took about 3.87 ms, the Rust version only took about 1.10 ms, resulting in a 3.5x increase in speed.
+### CRUD in main.py
+* **Load csv data into SQLite database**:
+`load("Development of Average Annual Wages_1.csv")`
+
+* **Create new entry for the country China**:
+`create_wages_data("China", 10000, 15000, 20000, 22000)`
+
+* **Update Iceland's data**:
+`update_wages_data("Iceland", 20000, 25000, 30000, 32000)`
+
+* **Print China's data**
+`read_wages_data_by_country("China")`
+
+* **Delete the data for China**
+`delete_wages_data("China")`
 
 ## User Guide to Run
 1. Fork the repository at **https://github.com/nogibjj/rust-data-engineering**

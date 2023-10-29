@@ -1,43 +1,42 @@
 use rusqlite::{params, Connection};
-use std::fs::File;
 use std::error::Error;
-use std::io;
 use std::fmt;
+use std::fs::File;
+use std::io;
 
 impl Error for CustomError {}
 
 #[derive(Debug)]
 pub enum CustomError {
-    SqliteError(rusqlite::Error),
-    CsvError(csv::Error),
-    IoError(io::Error),
+    Sqlite(rusqlite::Error),
+    Csv(csv::Error),
+    Io(io::Error),
 }
 
 impl From<rusqlite::Error> for CustomError {
     fn from(err: rusqlite::Error) -> CustomError {
-        CustomError::SqliteError(err)
+        CustomError::Sqlite(err)
     }
 }
 
 impl From<csv::Error> for CustomError {
     fn from(err: csv::Error) -> CustomError {
-        CustomError::CsvError(err)
+        CustomError::Csv(err)
     }
 }
 
 impl From<io::Error> for CustomError {
     fn from(err: io::Error) -> CustomError {
-        CustomError::IoError(err)
+        CustomError::Io(err)
     }
 }
 
 impl fmt::Display for CustomError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
-            CustomError::CsvError(ref e) => write!(f, "CSV error: {}", e),
-            CustomError::IoError(ref e) => write!(f, "IO error: {}", e),
-            CustomError::SqliteError(ref e) => write!(f, "Sqlite error: {}", e),
-
+            CustomError::Csv(ref e) => write!(f, "CSV error: {}", e),
+            CustomError::Io(ref e) => write!(f, "IO error: {}", e),
+            CustomError::Sqlite(ref e) => write!(f, "Sqlite error: {}", e),
         }
     }
 }
