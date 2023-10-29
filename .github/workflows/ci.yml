@@ -6,7 +6,6 @@ on:
     branches: [ "main" ]
 env:
   CARGO_TERM_COLOR: always
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,20 +25,16 @@ jobs:
       run: make rust-version
     - name: Format
       run: make format
-      working-directory: ./project
     - name: Lint
       run: make lint
-      working-directory: ./project
     - name: Test
       run: make test
-      working-directory: ./project
     - name: Build in Release Mode
-      run: cargo build --release
-      working-directory: ./project
+      run: cd project/ && cargo build --release  # This will explicitly build in release mode
     - name: Archive Binary
       uses: actions/upload-artifact@v2
       with:
         name: optimized-binary
-        path: project/target/release/sqlite_operations
+        path: target/release/sqlite_operations
     - name: pull repository
       run: git pull
