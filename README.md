@@ -52,7 +52,7 @@ Functions in `project/src/mylib/operations.rs`:
 (Successful CRUD operations)
 
 ## Optimized Rust Binary
- I've included a process that generates an optimized Rust binary as below, and you can download an artifact from GitHub Action's latest workflow run.
+ I've included a process that generates an optimized Rust binary as below, and you can download an artifact from the GitHub Action's latest workflow run.
  ```
  name: Archive Binary
  uses: actions/upload-artifact@v2
