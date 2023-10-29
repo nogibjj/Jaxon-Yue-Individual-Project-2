@@ -30,7 +30,7 @@ jobs:
     - name: Test
       run: make test
     - name: Build in Release Mode
-      run: cargo build --release  # This will explicitly build in release mode
+      run: cargo build --release
     - name: Archive Binary
       uses: actions/upload-artifact@v2
       with:
@@ -38,3 +38,5 @@ jobs:
         path: target/release/sqlite_operations
     - name: pull repository
       run: git pull
+
+    
