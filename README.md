@@ -1,4 +1,7 @@
 # IDS 706 Individual Project 2
+[![Lint](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/lint.yml)
+[![Build](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/build.yml/badge.svg)](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/build.yml)
+[![Tests](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/test.yml)
 
 ## Overview
 * This repository includes the components for Individual Project 2 - Rust CLI Binary with SQLite
