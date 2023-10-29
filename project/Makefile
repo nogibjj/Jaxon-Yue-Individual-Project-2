@@ -9,11 +9,6 @@ rust-version:
 format:
 	cargo fmt --quiet
 
-install:
-	@echo "Updating rust toolchain"
-	rustup update stable
-	rustup default stable 
-
 lint:
 	cargo clippy --quiet
 
@@ -25,5 +20,12 @@ run:
 
 release:
 	cargo build --release
+
+# Install Rust toolchain if needed
+install:
+	# Install if needed
+	# @echo "Updating rust toolchain"
+	# rustup update stable
+	# rustup default stable 
 
 all: format lint test run
