@@ -15,9 +15,6 @@ install:
 	
 	echo 'eval "$(github-copilot-cli alias -- "$0")"' >> ~/.bashrc
 
-build:
-	mdbook build data-eng-rust-tutorial
-
 format:
 	@echo "Formatting all projects with cargo"
 	./format.sh

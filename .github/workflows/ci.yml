@@ -35,6 +35,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: optimized-binary
-        path: target/release/sqlite_operations
+        path: project/target/release/
     - name: pull repository
       run: git pull
