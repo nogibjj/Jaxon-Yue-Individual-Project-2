@@ -1,7 +1,5 @@
 # IDS 706 Individual Project 2
-[![Lint](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/lint.yml)
-[![Build](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/build.yml/badge.svg)](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/build.yml)
-[![Tests](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/test.yml)
+[![Rust CI/CD Pipeline](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/ci.yml/badge.svg)](https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/actions/workflows/ci.yml)
 
 ## Overview
 * This repository includes the components for Individual Project 2 - Rust CLI Binary with SQLite
@@ -119,6 +117,7 @@ I have passed all GitHub Actions as below:
 <img width="701" alt="Screenshot 2023-10-29 at 4 06 15 PM" src="https://github.com/nogibjj/Jaxon-Yue-Individual-Project-2/assets/70416390/ee97f010-7fa8-4b64-b0e5-9f44713b7b51">
 
 ## YouTube Introduction
+
 
 ## References
 
